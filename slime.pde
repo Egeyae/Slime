@@ -1,10 +1,13 @@
-int np = 15000;
-int scr_size = 800;
+// CODE BY EGEYA 
+
+//CHANGE HERE THE NUMBER OF AGENTS
+int np = 40000;
 float velocity, sig, sa, sd, decay;
 int psize, th;
 
 void setup() {
-  size(800, 800);
+  // CHANGE HERE WINDOW SIZE
+  size(500, 500);
   set_random_params();
   set_particle_params(1, 1);
   frameRate(60);
@@ -12,14 +15,15 @@ void setup() {
 }
 
 void set_random_params() {
+  // CHANGE HERE THE RANGE OF THE PARTICLE'S PARAMETERS 
   velocity = random(2, 10);
   sig = int(random(12, 50));
   sa = int(random(10, 100));
   sd = int(random(velocity, 30));
   decay = int(random(5, sig-5));
-  psize = int(random(5, 13));
+  psize = int(random(3, 5));
   th = int(random(50, 220));
-  println("New Random Params: \tvel="+str(velocity)+" \tsig_str="+str(sig)+" \tdecay="+str(decay)+" \tsa="+str(sa)+" \tsd="+str(sd)+" \tp_size="+str(psize)+" \tth="+str(th));
+  //println("New Random Params: \tvel="+str(velocity)+" \tsig_str="+str(sig)+" \tdecay="+str(decay)+" \tsa="+str(sa)+" \tsd="+str(sd)+" \tp_size="+str(psize)+" \tth="+str(th));
 }
 
 
@@ -46,11 +50,6 @@ void keyPressed() {
     set_particle_params(1, 0);
   }
 }
-
-
-
-
-
 
 void draw() {
   fill(0, decay);
